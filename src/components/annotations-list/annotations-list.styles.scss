@@ -5,6 +5,7 @@
   position: relative;
   overflow-y: auto;
   border: 2px solid #333;
+  padding: 0;
 
   &::-webkit-scrollbar {
     width: 0;
@@ -17,12 +18,59 @@
     border-radius: 5px;
     margin: 10px auto;
     box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
+    transition: all .3s;
 
     &:hover {
       transform: translateY(-2px) scale(1.05);
       box-shadow: 1px 10px 40px rgba(0, 0, 0, 0.4);
       z-index: 1000;
     }
+  }
+}
+
+#last-labelled {
+  animation: fadeIn 1s ease-in;
+  animation-fill-mode: backwards;
+
+  & .annotations-list__item {
+    background-color: yellow;
+  }
+}
+
+.annotations-list__item-container {
+  transition: all .3s;
+}
+
+.pending-deletion {
+  // opacity: 0;
+  // visibility: hidden;
+  animation: fadeOut 1s ease-in;
+
+  .delete-button {
+    cursor: default;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    height: 100%;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
   }
 }

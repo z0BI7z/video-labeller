@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './redux/store';
 
+import './sass/main.scss';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,7 +16,7 @@ ReactDOM.render(
     <PersistGate persistor={persistor}>
       <BrowserRouter>
         <App />
-
+        <button onClick={() => persistor.purge()} >Purge</button>
       </BrowserRouter>
     </PersistGate>
   </Provider>,

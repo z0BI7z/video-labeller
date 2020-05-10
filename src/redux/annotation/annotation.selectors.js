@@ -11,3 +11,8 @@ export const selectData = createSelector(
   [selectAnnotation],
   annotation => annotation.data
 );
+
+export const selectLastLabelled = createSelector(
+  [selectAnnotation],
+  annotation => annotation.lastLabelled
+);

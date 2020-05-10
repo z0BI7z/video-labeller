@@ -49,8 +49,8 @@ class VideoController extends React.Component {
   }
 
   handleKeyDown = (event) => {
+    event.preventDefault();
     if (this.canMove) {
-      if (document.activeElement) document.activeElement.blur();
 
       const { frameTime } = this.props;
       this.canMove = false;
@@ -110,7 +110,6 @@ class VideoController extends React.Component {
   }
 
   render() {
-    console.log('rerendering')
     return (
       <div>
         <div className="video-controller__controls">

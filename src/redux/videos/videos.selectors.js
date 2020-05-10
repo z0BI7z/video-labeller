@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import { select } from 'redux-saga/effects';
 
 const selectVideos = state => state.videos;
 

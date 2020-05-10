@@ -27,7 +27,7 @@ class VideoDisplay extends React.Component {
     return (
       <div>
         <div className="video-display__video-container">
-          <video src={this.props.video} ref={this.videoElement}></video>
+          <video src={this.props.video} ref={this.videoElement} id='video'></video>
         </div>
         <div className="video-display__video-controller-container">
           {
