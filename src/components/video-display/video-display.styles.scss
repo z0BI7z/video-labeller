@@ -1,0 +1,19 @@
+.video-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__video-container {
+    position: relative;
+
+    & video {
+      width: 90%;
+      border-radius: 5px;
+    }
+  }
+
+  &__video-controller-container {
+    margin-top: 10px;
+  }
+}

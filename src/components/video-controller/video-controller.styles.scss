@@ -1,0 +1,10 @@
+.video-controller {
+  &__controls {
+    margin-bottom: 10px;
+  }
+
+  &__play-button {
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    color: white !important;
+  }
+}

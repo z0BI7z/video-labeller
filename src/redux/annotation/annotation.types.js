@@ -1,0 +1,7 @@
+const AnnotationActionTypes = {
+  ADD_ANNOTATION: 'ADD_ANNOTATION',
+  CLEAR_ANNOTATIONS: 'CLEAR_ANNOTATIONS',
+  DELETE_ANNOTATION: 'DELETE_ANNOTATION'
+}
+
+export default AnnotationActionTypes;

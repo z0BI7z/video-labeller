@@ -1,0 +1,12 @@
+.video-slider {
+  & &__slider {
+    width: 80%;
+    margin: 0 auto;
+    color: steelblue;
+  }
+
+  .frame-counter {
+    color: steelblue;
+    margin: 5px auto;
+  }
+}

@@ -1,0 +1,28 @@
+.annotations-list {
+  height: 500px;
+  background-color: #333;
+  border-radius: 2px;
+  position: relative;
+  overflow-y: auto;
+  border: 2px solid #333;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
+  &__item {
+    max-width: 90%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px auto;
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 1px 10px 40px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+  }
+}
