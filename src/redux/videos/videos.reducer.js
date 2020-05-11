@@ -6,7 +6,8 @@ const INITIAL_STATE = {
   currentVideo: {
     ...VIDEOS_LIST[0],
     time: 0
-  }
+  },
+  videoElement: null
 }
 
 const videosReducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +24,11 @@ const videosReducer = (state = INITIAL_STATE, action) => {
           ...state.currentVideo,
           time: action.payload
         }
+      }
+    case VideosActionTypes.SET_CURRENT_VIDEO_ELEMENT:
+      return {
+        ...state,
+        videoElement: action.payload
       }
     default:
       return state;

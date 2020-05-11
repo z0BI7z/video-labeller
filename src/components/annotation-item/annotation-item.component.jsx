@@ -24,9 +24,8 @@ const AnnotationItem = ({ annotation, isTarget, deleteAnnotation }) => {
     if (!willDelete) {
       setToDelete(true);
       setTimeout(() => {
-        // setToDelete(false);
         deleteAnnotation(annotation);
-      }, 500);
+      }, 300);
     }
   }
 

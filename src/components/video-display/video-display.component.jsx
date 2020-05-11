@@ -1,5 +1,6 @@
 import React from 'react';
-import VideoController from '../../components/video-controller/video-controller.component';
+import { connect } from 'react-redux';
+import { setCurrentVideoElement } from '../../redux/videos/videos.actions';
 
 import './video-display.styles.scss';
 
@@ -8,36 +9,25 @@ class VideoDisplay extends React.Component {
     super(props);
 
     this.videoElement = React.createRef();
-
-    this.state = {
-      videoElement: null
-    }
   }
 
   componentDidMount() {
-    this.setState({
-      ...this.state,
-      videoElement: this.videoElement.current
-    });
+    this.props.setCurrentVideoElement(this.videoElement.current);
   }
 
   render() {
-    const { videoElement } = this.state;
-
     return (
       <div>
         <div className="video-display__video-container">
           <video src={this.props.video} ref={this.videoElement} id='video'></video>
-        </div>
-        <div className="video-display__video-controller-container">
-          {
-            videoElement &&
-            <VideoController videoElement={videoElement} />
-          }
         </div>
       </div>
     );
   }
 }
 
-export default VideoDisplay;
+const mapDispatchToProps = dispatch => ({
+  setCurrentVideoElement: videoElement => dispatch(setCurrentVideoElement(videoElement))
+});
+
+export default connect(null, mapDispatchToProps)(VideoDisplay);

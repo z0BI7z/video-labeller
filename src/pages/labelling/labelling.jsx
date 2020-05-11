@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
+import './labelling.styles.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
-import VideoDisplay from '../../components/video-display/video-display.component';
-import AnnotationTools from '../../components/annotation-tools/annotation-tools.components';
-
 import { selectVideosList } from '../../redux/videos/videos.selectors';
 import { setCurrentVideo } from '../../redux/videos/videos.actions';
-
-import './labelling.styles.scss';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import VideoDisplay from '../../components/video-display/video-display.component';
+import VideoController from '../../components/video-controller/video-controller.component';
+import AnnotationTools from '../../components/annotation-tools/annotation-tools.components';
 
 const LabellingPage = ({ videosList, setCurrentVideo }) => {
   const [videoIndex, setVideoIndex] = useState(0);
@@ -30,7 +29,10 @@ const LabellingPage = ({ videosList, setCurrentVideo }) => {
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12} md={7} >
           <VideoDisplay video={video} />
-          <button onClick={handleClick}>Click Me</button>
+          <div className="labelling-page__video-controller">
+            <VideoController />
+          </div>
+          <Button onClick={handleClick} variant="contained">Swap Video</Button>
         </Grid>
         <Grid item xs={12} md={5}>
           <AnnotationTools />

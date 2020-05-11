@@ -17,7 +17,7 @@ export const selectFrameTime = createSelector(
   currentVideo => currentVideo.duration / currentVideo.totalFrames
 );
 
-export const selectIsFinished = createSelector(
-  [selectCurrentVideo],
-  currentVideo => currentVideo.time === currentVideo.duration
+export const selectCurrentVideoElement = createSelector(
+  [selectVideos],
+  videos => videos.videoElement
 );

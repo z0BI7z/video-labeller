@@ -29,8 +29,8 @@
 }
 
 #last-labelled {
-  animation: fadeIn 1s ease-in;
-  animation-fill-mode: backwards;
+  // animation: fadeIn 1s ease-in;
+  // animation-fill-mode: backwards;
 
   & .annotations-list__item {
     background-color: yellow;
@@ -42,8 +42,6 @@
 }
 
 .pending-deletion {
-  // opacity: 0;
-  // visibility: hidden;
   animation: fadeOut 1s ease-in;
 
   .delete-button {

@@ -7,4 +7,8 @@
     background-image: linear-gradient(to right, #7ed56f, #28b485);
     color: white !important;
   }
+
+  &__controls &__btn {
+    margin: .5rem 1rem;
+  }
 }

@@ -4,11 +4,9 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
 import VideoSlider from '../video-slider/video-slider.component';
-
 import { updateTime } from '../../redux/videos/videos.actions';
-import { selectFrameTime, selectIsFinished } from '../../redux/videos/videos.selectors';
+import { selectFrameTime, selectCurrentVideoElement } from '../../redux/videos/videos.selectors';
 
 import './video-controller.styles.scss';
 
@@ -16,7 +14,6 @@ class VideoController extends React.Component {
   constructor(props) {
     super(props);
 
-    this.videoElement = this.props.videoElement;
     this.canMove = true;
 
     this.state = {
@@ -24,28 +21,45 @@ class VideoController extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.videoElement.addEventListener("timeupdate", this.handleTimeUpdate, false);
-    document.addEventListener("keydown", this.handleKeyDown, false);
+  componentDidUpdate(prevProps) {
+    if (prevProps.videoElement !== this.props.videoElement) {
+      if (prevProps.videoElement) {
+        this.removeListeners(prevProps.videoElement);
+      }
+      if (this.props.videoElement) {
+        this.addListeners(this.props.videoElement);
+      }
+    }
   }
 
   componentWillUnmount() {
-    this.videoElement.removeEventListener("timeupdate", this.handleTimeUpdate, false);
+    if (this.props.videoElement) {
+      this.removeListeners(this.props.videoElement);
+    }
+  }
+
+  addListeners = element => {
+    element.addEventListener("timeupdate", this.handleTimeUpdate, false);
+    element.addEventListener("ended", this.onVideoEnd, false);
+    document.addEventListener("keydown", this.handleKeyDown, false);
+  }
+
+  removeListeners = element => {
+    element.removeEventListener("timeupdate", this.handleTimeUpdate, false);
+    element.removeEventListener("ended", this.onVideoEnd, false);
     document.removeEventListener("keydown", this.handleKeyDown, false);
   }
 
-  componentDidUpdate() {
-    if (this.props.isFinished && this.state.playing) {
-      this.setState({
-        ...this.state,
-        playing: false
-      });
-    }
+  onVideoEnd = () => {
+    this.setState({
+      ...this.state,
+      playing: false
+    });
   }
 
   handleTimeUpdate = () => {
     const { updateTime } = this.props;
-    updateTime(this.videoElement.currentTime);
+    updateTime(this.props.videoElement.currentTime);
   }
 
   handleKeyDown = (event) => {
@@ -57,16 +71,16 @@ class VideoController extends React.Component {
       setTimeout(() => this.canMove = true, 100);
 
       const { keyCode } = event;
-      console.log(keyCode);
+      console.log('keycode: ', keyCode);
 
       switch (keyCode) {
         case 32:
           return this.togglePlaying();
         case 37:
-          this.videoElement.currentTime = Math.max(this.videoElement.currentTime - frameTime, 0);
+          this.props.videoElement.currentTime = Math.max(this.props.videoElement.currentTime - frameTime, 0);
           return;
         case 39:
-          this.videoElement.currentTime = Math.min(this.videoElement.currentTime + frameTime, this.videoElement.duration);
+          this.props.videoElement.currentTime = Math.min(this.props.videoElement.currentTime + frameTime, this.props.videoElement.duration);
           return;
         default:
           return;
@@ -75,7 +89,7 @@ class VideoController extends React.Component {
   }
 
   pauseVideo = () => {
-    this.videoElement.pause();
+    this.props.videoElement.pause();
     this.setState({
       ...this.state,
       playing: false
@@ -83,19 +97,16 @@ class VideoController extends React.Component {
   }
 
   playVideo = () => {
-    this.videoElement.play();
-    let delay = 0;
-    if (this.props.isFinished) delay = 100;
-
-    setTimeout(() => this.setState({
+    this.props.videoElement.play();
+    this.setState({
       ...this.state,
-      playing: true
-    }), delay);
+      playing: true,
+    });
   }
 
   togglePlaying = () => {
-    if (this.state.playing) {
-      this.pauseVideo()
+    if (this.props.videoElement.playing) {
+      this.pauseVideo();
     } else {
       this.playVideo();
     }
@@ -103,23 +114,37 @@ class VideoController extends React.Component {
 
   handleSliderChange = () => {
     if (this.state.playing) {
-      this.videoElement.play();
+      this.props.videoElement.play();
     } else {
-      this.videoElement.pause();
+      this.props.videoElement.pause();
     }
+  }
+
+  logCurrentState = () => {
+    console.log('paused? ', this.props.videoElement.paused)
+    console.log('time: ', this.props.videoElement.currentTime)
+    console.log('has ended?: ', this.props.videoElement.ended)
+    console.log('playing?: ', this.props.videoElement.playing)
   }
 
   render() {
     return (
       <div>
-        <div className="video-controller__controls">
-          <Button onClick={this.togglePlaying} className="video-controller__play-button" variant="contained">
-            {
-              this.state.playing ? <PauseIcon /> : <PlayArrowIcon />
-            }
-          </Button>
-        </div>
-        <VideoSlider videoElement={this.videoElement} callback={this.handleSliderChange} />
+        {
+          this.props.videoElement ?
+            <div>
+              <div className="video-controller__controls">
+                <Button onClick={this.logCurrentState} variant="contained" className=" video-controller__btn" >State?</Button>
+                <Button onClick={this.togglePlaying} className="video-controller__play-button video-controller__btn" variant="contained">
+                  {
+                    this.state.playing ? <PauseIcon /> : <PlayArrowIcon />
+                  }
+                </Button>
+              </div>
+              <VideoSlider videoElement={this.props.videoElement} callback={this.handleSliderChange} />
+            </div>
+            : <h1>test</h1>
+        }
       </div>
     );
   }
@@ -127,7 +152,7 @@ class VideoController extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   frameTime: selectFrameTime,
-  isFinished: selectIsFinished
+  videoElement: selectCurrentVideoElement
 });
 
 const mapDispatchToProps = dispatch => ({
