@@ -7,12 +7,12 @@ import AnnotationsList from '../annotations-list/annotations-list.component';
 const AnnotationTools = () => {
   return (
     <div>
-      <Grid container direction="column" justify="space-around">
-        <Grid item xs={12}>
-          <LabelButtons />
-        </Grid>
+      <Grid container direction="column" justify="space-between">
         <Grid item xs={12}>
           <AnnotationsList />
+        </Grid>
+        <Grid item xs={12}>
+          <LabelButtons />
         </Grid>
       </Grid>
     </div>

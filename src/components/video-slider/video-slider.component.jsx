@@ -20,6 +20,7 @@ const VideoSlider = ({ videoElement, currentVideo, callback }) => {
   }
 
   const handleChangeCommitted = () => {
+    document.activeElement.blur();
     videoElement.currentTime = value / 100 * currentVideo.duration;
     callback();
   }

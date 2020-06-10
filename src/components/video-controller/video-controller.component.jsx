@@ -62,8 +62,17 @@ class VideoController extends React.Component {
     updateTime(this.props.videoElement.currentTime);
   }
 
+  changeTime = shift => {
+    if (shift < 0) {
+      this.props.videoElement.currentTime = Math.max(this.props.videoElement.currentTime + shift, 0);
+    } else {
+      this.props.videoElement.currentTime = Math.min(this.props.videoElement.currentTime + shift, this.props.videoElement.duration);
+    }
+  }
+
   handleKeyDown = (event) => {
     event.preventDefault();
+    document.activeElement.blur();
     if (this.canMove) {
 
       const { frameTime } = this.props;
@@ -75,6 +84,8 @@ class VideoController extends React.Component {
 
       switch (keyCode) {
         case 32:
+        case 38:
+        case 40:
           return this.togglePlaying();
         case 37:
           this.props.videoElement.currentTime = Math.max(this.props.videoElement.currentTime - frameTime, 0);
@@ -125,6 +136,7 @@ class VideoController extends React.Component {
     console.log('time: ', this.props.videoElement.currentTime)
     console.log('has ended?: ', this.props.videoElement.ended)
     console.log('playing?: ', this.props.videoElement.playing)
+    console.log('duration', this.props.videoElement.duration)
   }
 
   render() {
@@ -134,12 +146,14 @@ class VideoController extends React.Component {
           this.props.videoElement ?
             <div>
               <div className="video-controller__controls">
-                <Button onClick={this.logCurrentState} variant="contained" className=" video-controller__btn" >State?</Button>
+                <Button onClick={this.logCurrentState} variant="contained" className=" video-controller__btn" >Video Details</Button>
+                <Button onClick={() => this.changeTime(-this.props.frameTime * 10)} variant="contained" className=" video-controller__btn" >Back</Button>
                 <Button onClick={this.togglePlaying} className="video-controller__play-button video-controller__btn" variant="contained">
                   {
                     this.state.playing ? <PauseIcon /> : <PlayArrowIcon />
                   }
                 </Button>
+                <Button onClick={() => this.changeTime(this.props.frameTime * 10)} variant="contained" className=" video-controller__btn" >Forward</Button>
               </div>
               <VideoSlider videoElement={this.props.videoElement} callback={this.handleSliderChange} />
             </div>
