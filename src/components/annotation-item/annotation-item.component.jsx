@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 import { deleteAnnotation } from '../../redux/annotation/annotation.actions';
 
-const AnnotationItem = ({ annotation, isTarget, deleteAnnotation }) => {
+const AnnotationItem = ({ annotation, isTarget, deleteAnnotation, style }) => {
   const [willDelete, setToDelete] = useState(false);
   const [rendered, toggleRender] = useState(false);
 
@@ -30,7 +30,7 @@ const AnnotationItem = ({ annotation, isTarget, deleteAnnotation }) => {
   }
 
   return (
-    <div id={isTarget ? "last-labelled" : null} className={`annotations-list__item-container ${willDelete ? 'pending-deletion' : null} ${rendered ? 'animate' : null}`}>
+    <div style={style} id={isTarget ? "last-labelled" : null} className={`annotations-list__item-container ${willDelete ? 'pending-deletion' : null} ${rendered ? 'animate' : null}`}>
       <ListItem className={`annotations-list__item`}>
         <ListItemText primary={label} secondary={`frame: ${frame}`} />
         <IconButton onClick={handleClick} edge="end" aria-label="delete">
