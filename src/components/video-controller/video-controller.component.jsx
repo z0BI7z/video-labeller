@@ -137,6 +137,13 @@ class VideoController extends React.Component {
     console.log('has ended?: ', this.props.videoElement.ended)
     console.log('playing?: ', this.props.videoElement.playing)
     console.log('duration', this.props.videoElement.duration)
+    alert(`
+    paused: ${this.props.videoElement.paused}
+    time: ${this.props.videoElement.currentTime}
+    hasEnded: ${this.props.videoElement.ended}
+    playing: ${this.props.videoElement.playing}
+    duration: ${this.props.videoElement.duration}
+    `);
   }
 
   render() {

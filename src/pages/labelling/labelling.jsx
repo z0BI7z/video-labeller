@@ -14,7 +14,7 @@ const LabellingPage = ({ videosList, setCurrentVideo }) => {
   const [videoIndex, setVideoIndex] = useState(0);
 
   const handleClick = () => {
-    videoIndex === 0 ? setVideoIndex(1) : setVideoIndex(0);
+    videoIndex === 0 ? setVideoIndex(Math.min(videosList.length, 1)) : setVideoIndex(0);
     setCurrentVideo({
       ...currentVideo,
       time: 0
