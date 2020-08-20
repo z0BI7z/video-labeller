@@ -1,13 +1,13 @@
 const VIDEOS_LIST = [
   {
     name: 'corgi_demo.mp4',
-    totalFrames: 6855,
-    duration: 228.739773
+    totalFrames: 1801,
+    duration: 60.094
   },
   {
     name: 'pomsky_demo.mp4',
-    totalFrames: 7909,
-    duration: 329.885896
+    totalFrames: 555,
+    duration: 23.151
   }
 ]
 

@@ -32,7 +32,7 @@ const LabellingPage = ({ videosList, setCurrentVideo }) => {
           <div className="labelling-page__video-controller">
             <VideoController />
           </div>
-          <Button onClick={handleClick} variant="contained">Swap Video</Button>
+          {/* <Button onClick={handleClick} variant="contained">Swap Video</Button> */}
         </Grid>
         <Grid item xs={12} md={5}>
           <AnnotationTools />
