@@ -21,7 +21,7 @@ ReactDOM.render(
     <PersistGate persistor={persistor}>
       <BrowserRouter>
         <App />
-        <Button onClick={() => persistor.purge()} variant="contained">Purge Persist</Button>
+        <Button style={{ margin: '1rem' }} onClick={() => persistor.purge()} variant="contained">Wipe Storage</Button>
       </BrowserRouter>
     </PersistGate>
   </Provider>,

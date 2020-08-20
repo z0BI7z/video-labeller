@@ -29,6 +29,9 @@ const LabellingPage = ({ videosList, setCurrentVideo }) => {
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12} md={7} >
           <VideoDisplay video={video} />
+          <div style={{ margin: '.5rem' }}>
+            Use &larr; and &rarr; to change frames.
+          </div>
           <div className="labelling-page__video-controller">
             <VideoController />
           </div>
