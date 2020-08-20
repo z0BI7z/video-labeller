@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/video-labeller/static/css/main.a3287a3a.chunk.css",
+    "main.js": "/video-labeller/static/js/main.e1f921d9.chunk.js",
+    "main.js.map": "/video-labeller/static/js/main.e1f921d9.chunk.js.map",
+    "runtime-main.js": "/video-labeller/static/js/runtime-main.fcb85703.js",
+    "runtime-main.js.map": "/video-labeller/static/js/runtime-main.fcb85703.js.map",
+    "static/js/2.423a626e.chunk.js": "/video-labeller/static/js/2.423a626e.chunk.js",
+    "static/js/2.423a626e.chunk.js.map": "/video-labeller/static/js/2.423a626e.chunk.js.map",
+    "index.html": "/video-labeller/index.html",
+    "precache-manifest.8c0306b24941bdc795bf6583852dc07e.js": "/video-labeller/precache-manifest.8c0306b24941bdc795bf6583852dc07e.js",
+    "service-worker.js": "/video-labeller/service-worker.js",
+    "static/css/main.a3287a3a.chunk.css.map": "/video-labeller/static/css/main.a3287a3a.chunk.css.map",
+    "static/js/2.423a626e.chunk.js.LICENSE.txt": "/video-labeller/static/js/2.423a626e.chunk.js.LICENSE.txt",
+    "static/media/corgi_demo.mp4": "/video-labeller/static/media/corgi_demo.1d358d7f.mp4",
+    "static/media/pomsky_demo.mp4": "/video-labeller/static/media/pomsky_demo.06c48d11.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fcb85703.js",
+    "static/js/2.423a626e.chunk.js",
+    "static/css/main.a3287a3a.chunk.css",
+    "static/js/main.e1f921d9.chunk.js"
+  ]
+}
