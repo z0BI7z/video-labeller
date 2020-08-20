@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28870517eb34b4bab40d5d9a308a2546",
+    "revision": "ccd71bbabfcdb609f9bc59da20b677a1",
     "url": "/video-labeller/index.html"
   },
   {
-    "revision": "af823c3a0f3c330bc669",
+    "revision": "76d5d10439310b5cc5bb",
     "url": "/video-labeller/static/css/main.a3287a3a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/video-labeller/static/js/2.423a626e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "af823c3a0f3c330bc669",
-    "url": "/video-labeller/static/js/main.e1f921d9.chunk.js"
+    "revision": "76d5d10439310b5cc5bb",
+    "url": "/video-labeller/static/js/main.4a3f98a0.chunk.js"
   },
   {
     "revision": "e5f58e69f3e0c614bcbb",

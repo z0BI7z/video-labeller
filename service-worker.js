@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/video-labeller/precache-manifest.8c0306b24941bdc795bf6583852dc07e.js"
+  "/video-labeller/precache-manifest.cf7c477671d69350705cc39998647839.js"
 );
 
 self.addEventListener('message', (event) => {

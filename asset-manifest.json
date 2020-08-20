@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/video-labeller/static/css/main.a3287a3a.chunk.css",
-    "main.js": "/video-labeller/static/js/main.e1f921d9.chunk.js",
-    "main.js.map": "/video-labeller/static/js/main.e1f921d9.chunk.js.map",
+    "main.js": "/video-labeller/static/js/main.4a3f98a0.chunk.js",
+    "main.js.map": "/video-labeller/static/js/main.4a3f98a0.chunk.js.map",
     "runtime-main.js": "/video-labeller/static/js/runtime-main.fcb85703.js",
     "runtime-main.js.map": "/video-labeller/static/js/runtime-main.fcb85703.js.map",
     "static/js/2.423a626e.chunk.js": "/video-labeller/static/js/2.423a626e.chunk.js",
     "static/js/2.423a626e.chunk.js.map": "/video-labeller/static/js/2.423a626e.chunk.js.map",
     "index.html": "/video-labeller/index.html",
-    "precache-manifest.8c0306b24941bdc795bf6583852dc07e.js": "/video-labeller/precache-manifest.8c0306b24941bdc795bf6583852dc07e.js",
+    "precache-manifest.cf7c477671d69350705cc39998647839.js": "/video-labeller/precache-manifest.cf7c477671d69350705cc39998647839.js",
     "service-worker.js": "/video-labeller/service-worker.js",
     "static/css/main.a3287a3a.chunk.css.map": "/video-labeller/static/css/main.a3287a3a.chunk.css.map",
     "static/js/2.423a626e.chunk.js.LICENSE.txt": "/video-labeller/static/js/2.423a626e.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.fcb85703.js",
     "static/js/2.423a626e.chunk.js",
     "static/css/main.a3287a3a.chunk.css",
-    "static/js/main.e1f921d9.chunk.js"
+    "static/js/main.4a3f98a0.chunk.js"
   ]
 }
