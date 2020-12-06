@@ -12,6 +12,3 @@ This project uses react and redux to provide dynamic interaction with an html vi
 
 Labels can be specified in './src/annotation/annotation.data.js'. Videos can be specified in './src/videos/videos.data.js' and can be stored in './src/data'. 
 
-## To Do
-
-Create labels and upload videos on the fly.
